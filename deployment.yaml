@@ -56,7 +56,7 @@ metadata:
   name: backend-ingress
 spec:
   rules:
-  - host: ${CICD_GIT_BRANCH}.demo.p1b.us
+  - host: prod.demo.p1b.us
     http:
       paths:
       - path: /api/
