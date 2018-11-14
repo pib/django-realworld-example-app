@@ -1,9 +1,22 @@
 stages:
-- name: build
+- name: Setup
+  steps:
+    - runScriptConfig:
+        image: python:3.7.1
+        shellScript: |-
+          python -m venv ./venv
+          ./venv/bin/pip install -r requirements.txt
+- name: Test
+  steps:
+    - runScriptConfig:
+        image: python:3.7.1
+        shellScript: |-
+          ./venv/bin/python manage.py test
+- name: Publish
   steps:
   - publishImageConfig:
       dockerfilePath: ./Dockerfile
       buildContext: .
-      tag: demo-backend
+      tag: demo-backend::${CICD_EXECUTION_SEQUENCE}
       registry: 127.0.0.1:34331
 timeout: 60
