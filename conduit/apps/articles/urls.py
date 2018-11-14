@@ -5,7 +5,7 @@ from .views import (ArticlesFavoriteAPIView, ArticlesFeedAPIView,
                     ArticleViewSet, CommentsDestroyAPIView,
                     CommentsListCreateAPIView, TagListAPIView)
 
-router = DefaultRouter(trailing_slash=True)
+router = DefaultRouter(trailing_slash=False)
 router.register(r'articles', ArticleViewSet)
 
 urlpatterns = [
