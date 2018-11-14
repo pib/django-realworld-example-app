@@ -1,0 +1,9 @@
+stages:
+- name: build
+  steps:
+  - publishImageConfig:
+      dockerfilePath: ./Dockerfile
+      buildContext: .
+      tag: demo-backend
+      registry: 127.0.0.1:34331
+timeout: 60
