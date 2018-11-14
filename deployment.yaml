@@ -54,7 +54,7 @@ metadata:
   name: backend-ingress
 spec:
   rules:
-  - host: demo.p1b.us
+  - host: demo.rancher.p1b.us
     http:
       paths:
       - path: /api/*
