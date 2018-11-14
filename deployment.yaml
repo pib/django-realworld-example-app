@@ -1,10 +1,10 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: demo-backend-service
+  name: ${CICD_GIT_BRANCH}-demo-backend-service
 spec:
   selector:
-    app: demo-backend
+    app: ${CICD_GIT_BRANCH}-demo-backend
   ports:
   - port: 80
 ---
