@@ -59,7 +59,7 @@ spec:
   - host: ${CICD_GIT_BRANCH}.demo.p1b.us
     http:
       paths:
-      - path: /api/*
+      - path: /api/
         backend:
           serviceName: demo-backend-service
           servicePort: 80
