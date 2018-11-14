@@ -11,18 +11,18 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: demo-backend
+  name: ${CICD_GIT_BRANCH}-demo-backend
   labels:
-    app: demo-backend
+    app: ${CICD_GIT_BRANCH}-demo-backend
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: demo-backend
+      app: ${CICD_GIT_BRANCH}-demo-backend
   template:
     metadata:
       labels:
-        app: demo-backend
+        app: ${CICD_GIT_BRANCH}-demo-backend
     spec:
       imagePullSecrets:
       - name: pipeline-docker-registry
@@ -53,13 +53,13 @@ spec:
 kind: Ingress
 apiVersion: extensions/v1beta1
 metadata:
-  name: backend-ingress
+  name: ${CICD_GIT_BRANCH}-backend-ingress
 spec:
   rules:
-  - host: prod.demo.p1b.us
+  - host: ${CICD_GIT_BRANCH}.demo.p1b.us
     http:
       paths:
       - path: /api/
         backend:
-          serviceName: demo-backend-service
+          serviceName: ${CICD_GIT_BRANCH}-demo-backend-service
           servicePort: 80
