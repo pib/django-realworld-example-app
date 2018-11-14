@@ -39,6 +39,9 @@ spec:
       containers:
       - name: backend
         image: ${CICD_IMAGE}:${CICD_EXECUTION_SEQUENCE}
+        args:
+          - runserver
+          - 0.0.0.0:80
         ports:
         - containerPort: 80
         volumeMounts:
